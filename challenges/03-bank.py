@@ -1,10 +1,22 @@
 print("Welcome to Chase bank.")
 print("Have a nice day!")
 
-def bank(balance):
-    question = input('Would you like to check your balance?\n')
-    if question == yes:
-        return balance
-    elif question == no:
-        return input('What would you like to do?')
-    elif 
+def bank(amount):
+    balance = amount
+    user_input = input("What would you like to do? (deposit, withdraw, check_balance): ")
+    if user_input == "deposit".lower():
+        deposit_amount = int(input("How much would you like to deposit?: "))
+        balance = balance + deposit_amount
+        return print("You have " + str(balance))
+    if user_input == "withdraw".lower():
+        withdraw_amount = int(input("How much would you like to withdraw?: "))
+        if withdraw_amount > balance:
+            print("Not enough money from stim")
+            else:
+                balance = balance - withdraw_amount
+                return print("You withdrew " + str(withdraw_amount) + "You have " + str(balance) + " remaining!")
+
+    if user_input == "balance".lower():
+        return print("You have " + balance + "remaining in your account")
+
+bank(600)
